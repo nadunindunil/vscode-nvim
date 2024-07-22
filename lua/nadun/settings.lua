@@ -62,10 +62,14 @@ vim.api.nvim_set_keymap('n', '<C-h>', ":call VSCodeNotify('workbench.action.navi
 vim.api.nvim_set_keymap('x', '<C-h>', ":call VSCodeNotify('workbench.action.navigateLeft')<CR>", opts)
 vim.api.nvim_set_keymap('n', '<C-l>', ":call VSCodeNotify('workbench.action.navigateRight')<CR>", opts)
 vim.api.nvim_set_keymap('x', '<C-l>', ":call VSCodeNotify('workbench.action.navigateRight')<CR>", opts)
+
 vim.api.nvim_set_keymap('n', 'gr', "<Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>", opts)
+
 vim.api.nvim_set_keymap('x', '<C-/>', 'v:lua.vscodeCommentary()', { expr = true, noremap = true })
 vim.api.nvim_set_keymap('n', '<C-/>', 'v:lua.vscodeCommentary() . "_"', { expr = true, noremap = true })
+
 vim.api.nvim_set_keymap('n', '<C-w>_', ":<C-u>call VSCodeNotify('workbench.action.toggleEditorWidths')<CR>", opts)
+
 vim.api.nvim_set_keymap('n', '<Space>', ":call VSCodeNotify('whichkey.show')<CR>", opts)
 vim.api.nvim_set_keymap('x', '<Space>', ":<C-u>lua openWhichKeyInVisualMode()<CR>", opts)
 vim.api.nvim_set_keymap('x', '<C-P>', ":<C-u>lua openVSCodeCommandsInVisualMode()<CR>", opts)
