@@ -97,3 +97,31 @@ vim.api.nvim_set_keymap('n', '<C-k>', ":m .-2<CR>==", opts)
 -- Add new line below the curosr.
 vim.api.nvim_set_keymap('n', '<S-k>', "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>", opts)
 vim.api.nvim_set_keymap('n', '<S-j>', "<Cmd>call append(line('.'),     repeat([''], v:count1))<CR>", opts)
+
+-- Fold for nvim in vscode
+local map = vim.api.nvim_set_keymap
+local options = { noremap = true, silent = true }
+
+map('n', 'za', '<Cmd>call VSCodeNotify("editor.toggleFold")<CR>', options)
+map('n', 'zR', '<Cmd>call VSCodeNotify("editor.unfoldAll")<CR>', options)
+map('n', 'zM', '<Cmd>call VSCodeNotify("editor.foldAll")<CR>', options)
+map('n', 'zo', '<Cmd>call VSCodeNotify("editor.unfold")<CR>', options)
+map('n', 'zO', '<Cmd>call VSCodeNotify("editor.unfoldRecursively")<CR>', options)
+map('n', 'zc', '<Cmd>call VSCodeNotify("editor.fold")<CR>', options)
+map('n', 'zC', '<Cmd>call VSCodeNotify("editor.foldRecursively")<CR>', options)
+
+map('n', 'z1', '<Cmd>call VSCodeNotify("editor.foldLevel1")<CR>', options)
+map('n', 'z2', '<Cmd>call VSCodeNotify("editor.foldLevel2")<CR>', options)
+map('n', 'z3', '<Cmd>call VSCodeNotify("editor.foldLevel3")<CR>', options)
+map('n', 'z4', '<Cmd>call VSCodeNotify("editor.foldLevel4")<CR>', options)
+map('n', 'z5', '<Cmd>call VSCodeNotify("editor.foldLevel5")<CR>', options)
+map('n', 'z6', '<Cmd>call VSCodeNotify("editor.foldLevel6")<CR>', options)
+map('n', 'z7', '<Cmd>call VSCodeNotify("editor.foldLevel7")<CR>', options)
+
+map('x', 'zV', '<Cmd>call VSCodeNotify("editor.foldAllExcept")<CR>', options)
+
+-- Next hunk
+vim.api.nvim_set_keymap('n', ']c', '<Cmd>call VSCodeNotify("workbench.action.editor.nextChange")<CR>', { noremap = true, silent = true })
+
+-- Previous hunk
+vim.api.nvim_set_keymap('n', '[c', '<Cmd>call VSCodeNotify("workbench.action.editor.previousChange")<CR>', { noremap = true, silent = true })
